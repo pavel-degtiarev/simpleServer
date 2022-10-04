@@ -1,0 +1,17 @@
+{
+	"name": "simple-server",
+	"version": "1.0.0",
+	"main": "main.js",
+	"type": "module",
+	"scripts": {
+		"start": "node ./prod/main.js",
+		"build": "tsc"
+	},
+	"license": "ISC",
+	"devDependencies": {
+		"@types/express": "^4.17.14"
+	},
+	"dependencies": {
+		"express": "^4.17.1"
+	}
+}
