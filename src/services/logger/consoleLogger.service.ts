@@ -9,7 +9,7 @@ export class ConsoleLogger implements ILogger {
       displayInstanceName: false,
       displayLoggerName: false,
       displayFunctionName: false,
-      displayFilePath: "hideNodeModulesOnly",
+      displayFilePath: "hidden",
     });
   }
 
