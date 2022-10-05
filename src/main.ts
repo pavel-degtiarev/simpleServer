@@ -1,6 +1,7 @@
 import express from "express";
 import { App } from "./app.js";
 import { RouteController } from "./common/interfaces/routeController.interface.js";
+import { ExceptionFilter } from "./services/errors/exceptionFilter.service.js";
 import { ConsoleLogger } from "./services/logger/consoleLogger.service.js";
 import { UsersController } from "./users/users.controller.js";
 
@@ -13,8 +14,14 @@ const routers: RouteController[] = [
   },
 ];
 
+const exceptionFilters: ExceptionFilter[] = [
+  new ExceptionFilter(consoleLogger)
+];
+
+// ==================================
+
 function main() {
-  const app = new App(express(), routers, consoleLogger);
+  const app = new App(express(), routers, exceptionFilters, consoleLogger);
   app.init(8000);
 }
 
