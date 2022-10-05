@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { BaseController } from "../common/base.controller.js";
 import { ILogger } from "../common/interfaces/logger.interface.js";
+import { HTTPError } from "../services/errors/httpError.js";
 
 export class UsersController extends BaseController {
   constructor(logger: ILogger) {
@@ -17,7 +18,8 @@ export class UsersController extends BaseController {
   }
 
   login(req: Request, res: Response, next: NextFunction) {
-    this.ok(res, "login");
+    // this.ok(res, "login");
+    next(new HTTPError(401, "login error", "login"))
   }
 
   register(req: Request, res: Response, next: NextFunction) {
