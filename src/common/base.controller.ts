@@ -23,7 +23,7 @@ export abstract class BaseController {
   }
 
   send<T>(res: Response, code: number, message: T) {
-    return res.contentType("application.json").status(code).write(message);
+    return res.contentType("application/json").status(code).json(message);
   }
 
   ok<T>(res: Response, message: T) {
