@@ -1,6 +1,6 @@
 import { Express, Router } from "express";
 import { Server } from "http";
-import { ILogger } from "./services/logger/loggerInterface.js";
+import { ILogger } from "./services/logger/logger.interface.js";
 import { userRouter } from "./users/users.js";
 
 export class App {

@@ -1,5 +1,5 @@
 import { Response, Router } from "express";
-import { ILogger } from "../services/logger/loggerInterface.js";
+import { ILogger } from "../services/logger/logger.interface.js";
 import { IRoute } from "./route.interface.js";
 
 export abstract class BaseController {
