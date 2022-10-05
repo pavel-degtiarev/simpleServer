@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from "express";
 
 type Methods = "get" | "post" | "put" | "patch" | "delete";
-export type RouterMethods = Uppercase<keyof Pick<Router, Methods>>;
+export type RouterMethods = keyof Pick<Router, Methods>;
 
 export interface IRoute {
   method: RouterMethods;
