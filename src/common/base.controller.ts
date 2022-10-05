@@ -11,6 +11,10 @@ export abstract class BaseController {
     this._router = Router();
   }
 
+  get router() {
+    return this._router;
+  }
+
   protected bindRoutes(routes: IRoute[]) {
     routes.forEach((route) => {
       this.logger.log(`${route.method}`);
