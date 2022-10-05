@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { IRoute } from "../common/interfaces/route.interface.js";
 
-export const routes: IRoute[] = [
+export const userRoutes: IRoute[] = [
   {
     method: "get",
     endpoint: "/",
@@ -17,7 +17,7 @@ export const routes: IRoute[] = [
       res.send("login");
     },
   },
-  
+
   {
     method: "post",
     endpoint: "/register",

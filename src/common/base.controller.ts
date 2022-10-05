@@ -17,7 +17,7 @@ export abstract class BaseController {
 
   protected bindRoutes(routes: IRoute[]) {
     routes.forEach((route) => {
-      this.logger.log(`${route.method}`);
+      this.logger.log(`Added method ${route.method} for ${route.endpoint}`);
       this._router[route.method](route.endpoint, route.handler.bind(this));
     });
   }
