@@ -4,7 +4,7 @@
 	"main": "main.js",
 	"type": "module",
 	"scripts": {
-		"start": "node ./prod/main.js",
+		"start": "tsc && node ./prod/main.js",
 		"build": "tsc"
 	},
 	"license": "ISC",
