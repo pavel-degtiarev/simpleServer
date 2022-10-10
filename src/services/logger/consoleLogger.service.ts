@@ -1,8 +1,6 @@
-import { injectable } from "inversify";
 import { Logger } from "tslog";
 import { ILogger } from "../../common/interfaces/logger.interface.js";
 
-@injectable()
 export class ConsoleLogger implements ILogger {
   private logger: Logger;
 
