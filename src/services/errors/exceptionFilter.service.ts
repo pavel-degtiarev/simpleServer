@@ -11,7 +11,7 @@ export class ExceptionFilter implements IException {
     this.logger.log(`Exception filter attached`);
   }
 
-  catch(err: Error | HTTPError, req: Request, res: Response, next: NextFunction) {
+  catch(err: Error | HTTPError, req: Request, res: Response, next: NextFunction): void {
     if (err instanceof HTTPError) {
       this.logger.error(`[${err.context}] Error ${err.code}: ${err.message}`);
       res.status(err.code).send({ error: err.message });

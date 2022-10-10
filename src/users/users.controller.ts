@@ -13,16 +13,16 @@ export class UsersController extends BaseController {
     ]);
   }
 
-  root(req: Request, res: Response, next: NextFunction) {
+  root(req: Request, res: Response, next: NextFunction): void {
     this.ok(res, "");
   }
 
-  login(req: Request, res: Response, next: NextFunction) {
+  login(req: Request, res: Response, next: NextFunction): void {
     // this.ok(res, "login");
     next(new HTTPError(401, "login error", "login"));
   }
 
-  register(req: Request, res: Response, next: NextFunction) {
+  register(req: Request, res: Response, next: NextFunction): void {
     this.ok(res, "register");
   }
 }
