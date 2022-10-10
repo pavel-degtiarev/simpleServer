@@ -1,10 +1,13 @@
 import { NextFunction, Request, Response } from "express";
+import { inject, injectable } from "inversify";
 import { BaseController } from "../common/base.controller.js";
 import { ILogger } from "../common/interfaces/logger.interface.js";
+import { BIND_ID } from "../DI/identificators.js";
 import { HTTPError } from "../services/errors/httpError.js";
 
+@injectable()
 export class UsersController extends BaseController {
-  constructor(logger: ILogger) {
+  constructor(@inject(BIND_ID.ILogger) logger: ILogger) {
     super(logger);
     this.bindRoutes([
       { method: "get", endpoint: "/", handler: this.root.bind(this) },
@@ -14,7 +17,7 @@ export class UsersController extends BaseController {
   }
 
   root(req: Request, res: Response, next: NextFunction) {
-    this.ok(res, "");
+    this.ok(req, res, "");
   }
 
   login(req: Request, res: Response, next: NextFunction) {
@@ -23,6 +26,6 @@ export class UsersController extends BaseController {
   }
 
   register(req: Request, res: Response, next: NextFunction) {
-    this.ok(res, "register");
+    this.ok(req, res, "register");
   }
 }
