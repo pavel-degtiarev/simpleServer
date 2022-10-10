@@ -6,6 +6,9 @@
 	"scripts": {
 		"start": "tsc && node ./prod/main.js",
 		"dev": "nodemon",
+		"dev:inspect": "nodemon -e ts,json --exec node --inspect=localhost:9222 -r ts-node/register --loader ts-node/esm src/main.ts",
+		"clinic:doctor": "tsc && clinic doctor --on-port 'autocannon -m POST localhost: 8000/users/register' -- node prod/main.js",
+		"clinic:flame": "tsc && clinic flame --on-port 'autocannon -m POST localhost: 8000/users/register' -- node prod/main.js",
 		"build": "tsc",
 		"lint": "eslint ./src/**"
 	},
