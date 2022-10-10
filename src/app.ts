@@ -25,15 +25,15 @@ export class App {
     this.exceptionFilters = exceptionFilters;
   }
 
-  useRoute(route: string, router: Router) {
+  useRoute(route: string, router: Router): void {
     this.expressApp.use(route, router);
   }
 
-  useExceptionFilter(filter: ExceptionFilter) {
+  useExceptionFilter(filter: ExceptionFilter): void {
     this.expressApp.use(filter.catch.bind(filter));
   }
 
-  init(port: number) {
+  init(port: number): void {
     this.port = port;
 
     this.routers.forEach((item) => this.useRoute(item.route, item.controller.router));

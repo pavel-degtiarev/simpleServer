@@ -1,8 +1,6 @@
-import { injectable } from "inversify";
 import { Logger } from "tslog";
 import { ILogger } from "../../common/interfaces/logger.interface.js";
 
-@injectable()
 export class ConsoleLogger implements ILogger {
   private logger: Logger;
 
@@ -15,15 +13,15 @@ export class ConsoleLogger implements ILogger {
     });
   }
 
-  log(...args: unknown[]) {
+  log(...args: unknown[]): void {
     this.logger.info(...args);
   }
 
-  warn(...args: unknown[]) {
+  warn(...args: unknown[]): void {
     this.logger.warn(...args);
   }
 
-  error(...args: unknown[]) {
+  error(...args: unknown[]): void {
     this.logger.error(...args);
   }
 }
