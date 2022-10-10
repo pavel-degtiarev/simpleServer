@@ -18,7 +18,7 @@ const exceptionFilters: ExceptionFilter[] = [new ExceptionFilter(consoleLogger)]
 
 // ==================================
 
-function main() {
+function main():void {
   const app = new App(express(), routers, exceptionFilters, consoleLogger);
   app.init(8000);
 }
