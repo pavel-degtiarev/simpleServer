@@ -1,6 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { BaseController } from "../common/base.controller.js";
 import { ILogger } from "../common/interfaces/logger.interface.js";
+import { UserLoginDto } from "../dto/user/userLogin.dto.js";
+import { UserRegisterDto } from "../dto/user/userRegister.dto.js";
 import { HTTPError } from "../services/errors/httpError.js";
 
 export class UsersController extends BaseController {
@@ -17,12 +19,14 @@ export class UsersController extends BaseController {
     this.ok(res, "");
   }
 
-  login(req: Request, res: Response, next: NextFunction): void {
+  login(req: Request<{}, {}, UserLoginDto>, res: Response, next: NextFunction): void {
     // this.ok(res, "login");
+    console.log(req.body);
     next(new HTTPError(401, "login error", "login"));
   }
 
-  register(req: Request, res: Response, next: NextFunction): void {
+  register(req: Request<{}, {}, UserRegisterDto>, res: Response, next: NextFunction): void {
+    console.log(req.body);
     this.ok(res, "register");
   }
 }
