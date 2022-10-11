@@ -1,4 +1,7 @@
 import express from "express";
+import bodyParser from "body-parser";
+import { NextHandleFunction } from "connect";
+
 import { App } from "./app.js";
 import { RouteController } from "./common/interfaces/routeController.interface.js";
 import { ExceptionFilter } from "./services/errors/exceptionFilter.service.js";
@@ -14,12 +17,13 @@ const routers: RouteController[] = [
   },
 ];
 
+const middlewares: NextHandleFunction[] = [bodyParser.json()];
 const exceptionFilters: ExceptionFilter[] = [new ExceptionFilter(consoleLogger)];
 
 // ==================================
 
-function main():void {
-  const app = new App(express(), routers, exceptionFilters, consoleLogger);
+function main(): void {
+  const app = new App(express(), middlewares, routers, exceptionFilters, consoleLogger);
   app.init(8000);
 }
 
