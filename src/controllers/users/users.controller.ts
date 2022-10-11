@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import { BaseController } from "../common/base.controller.js";
-import { ILogger } from "../common/interfaces/logger.interface.js";
-import { UserLoginDto } from "../dto/user/userLogin.dto.js";
-import { UserRegisterDto } from "../dto/user/userRegister.dto.js";
-import { HTTPError } from "../services/errors/httpError.js";
+import { BaseController } from "../../common/base.controller.js";
+import { ILogger } from "../../common/interfaces/logger.interface.js";
+import { UserLoginDto } from "../../dto/user/userLogin.dto.js";
+import { UserRegisterDto } from "../../dto/user/userRegister.dto.js";
+import { HTTPError } from "../../services/errors/httpError.js";
 
 export class UsersController extends BaseController {
   constructor(logger: ILogger) {
