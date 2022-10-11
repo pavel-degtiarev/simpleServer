@@ -1,9 +1,10 @@
 import { NextFunction, Request, Response } from "express";
-import { BaseController } from "../common/base.controller.js";
-import { ILogger } from "../common/interfaces/logger.interface.js";
-import { UserLoginDto } from "../dto/user/userLogin.dto.js";
-import { UserRegisterDto } from "../dto/user/userRegister.dto.js";
-import { HTTPError } from "../services/errors/httpError.js";
+import { BaseController } from "../../common/base.controller.js";
+import { ILogger } from "../../common/interfaces/logger.interface.js";
+import { UserLoginDto } from "../../dto/user/userLogin.dto.js";
+import { UserRegisterDto } from "../../dto/user/userRegister.dto.js";
+import { User } from "../../entities/user/user.entity.js";
+import { HTTPError } from "../../services/errors/httpError.js";
 
 export class UsersController extends BaseController {
   constructor(logger: ILogger) {
@@ -25,8 +26,15 @@ export class UsersController extends BaseController {
     next(new HTTPError(401, "login error", "login"));
   }
 
-  register(req: Request<{}, {}, UserRegisterDto>, res: Response, next: NextFunction): void {
+  async register(
+    req: Request<{}, {}, UserRegisterDto>,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
     console.log(req.body);
-    this.ok(res, "register");
+    const newUser = new User(req.body.name, req.body.email);
+    await newUser.setPassword(req.body.password);
+
+    this.ok(res, newUser);
   }
 }

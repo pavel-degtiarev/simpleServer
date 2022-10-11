@@ -6,7 +6,7 @@ import { App } from "./app.js";
 import { RouteController } from "./common/interfaces/routeController.interface.js";
 import { ExceptionFilter } from "./services/errors/exceptionFilter.service.js";
 import { ConsoleLogger } from "./services/logger/consoleLogger.service.js";
-import { UsersController } from "./users/users.controller.js";
+import { UsersController } from "./controllers/users/users.controller.js";
 
 const consoleLogger = new ConsoleLogger();
 
