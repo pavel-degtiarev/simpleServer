@@ -1,5 +1,5 @@
 import { Logger } from "tslog";
-import { ILogger } from "../../common/interfaces/logger.interface.js";
+import { ILogger } from "../../interfaces/logger.interface.js";
 
 export class ConsoleLogger implements ILogger {
   private logger: Logger;
