@@ -3,6 +3,6 @@ import { UserRegisterDto } from "../dto/user/userRegister.dto.js";
 import { User } from "../entities/user/user.entity.js";
 
 export interface IUserService {
-  createUser: (userDto: UserRegisterDto) => User | null;
-  validateUser: (userDto: UserLoginDto) => boolean;
+  createUser: (userDto: UserRegisterDto) => Promise<User | null>;
+  validateUser: (userDto: UserLoginDto) => Promise<boolean>;
 }

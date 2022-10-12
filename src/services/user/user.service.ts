@@ -4,11 +4,17 @@ import { User } from "../../entities/user/user.entity.js";
 import { IUserService } from "../../interfaces/user.service.interface.js";
 
 export class UserService implements IUserService {
-  createUser({email, name, password}: UserRegisterDto): User | null {
-    return null;
+  async createUser({ email, name, password }: UserRegisterDto): Promise<User | null> {
+    // проверка, что пользователь существует
+    // если да, возвращаем null,
+    // если нет - создаем и возвращаем пользователя
+
+    const newUser = new User(name, email);
+    await newUser.setPassword(password);
+    return newUser;
   }
 
-  validateUser(userDto: UserLoginDto): boolean {
+  async validateUser(userDto: UserLoginDto): Promise<boolean> {
     return true;
   }
 }
