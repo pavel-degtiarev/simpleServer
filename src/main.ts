@@ -18,13 +18,13 @@ const routers: RouteController[] = [
   },
 ];
 
-const middlewares: NextHandleFunction[] = [bodyParser.json()];
+const baseMiddlewares: NextHandleFunction[] = [bodyParser.json()];
 const exceptionFilters: ExceptionFilter[] = [new ExceptionFilter(consoleLogger)];
 
 // ==================================
 
 function main(): void {
-  const app = new App(express(), middlewares, routers, exceptionFilters, consoleLogger);
+  const app = new App(express(), baseMiddlewares, routers, exceptionFilters, consoleLogger);
   app.init(8000);
 }
 
