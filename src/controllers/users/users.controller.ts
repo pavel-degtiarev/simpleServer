@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { BaseController } from "../../common/base.controller.js";
-import { ILogger } from "../../common/interfaces/logger.interface.js";
+import { BaseController } from "../base.controller.js";
+import { ILogger } from "../../interfaces/logger.interface.js";
 import { UserLoginDto } from "../../dto/user/userLogin.dto.js";
 import { UserRegisterDto } from "../../dto/user/userRegister.dto.js";
 import { User } from "../../entities/user/user.entity.js";

@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import { NextHandleFunction } from "connect";
 
 import { App } from "./app.js";
-import { RouteController } from "./common/interfaces/routeController.interface.js";
+import { RouteController } from "./interfaces/routeController.interface.js";
 import { ExceptionFilter } from "./helpers/errors/exceptionFilter.service.js";
 import { ConsoleLogger } from "./helpers/logger/consoleLogger.service.js";
 import { UsersController } from "./controllers/users/users.controller.js";

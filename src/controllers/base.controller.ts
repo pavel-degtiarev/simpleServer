@@ -1,6 +1,6 @@
 import { Response, Router } from "express";
-import { ILogger } from "./interfaces/logger.interface.js";
-import { IRoute } from "./interfaces/route.interface.js";
+import { ILogger } from "../interfaces/logger.interface.js";
+import { IRoute } from "../interfaces/route.interface.js";
 
 type TResponse = Response<any, Record<string, any>>;
 

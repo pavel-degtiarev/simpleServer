@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import { IException } from "../../common/interfaces/exceptionFilter.interface.js";
-import { ILogger } from "../../common/interfaces/logger.interface.js";
+import { IException } from "../../interfaces/exceptionFilter.interface.js";
+import { ILogger } from "../../interfaces/logger.interface.js";
 import { HTTPError } from "./httpError.js";
 
 export class ExceptionFilter implements IException {
