@@ -39,7 +39,7 @@ export class App {
   }
 
   useExceptionFilter(filter: ExceptionFilter): void {
-    this.expressApp.use(filter.catch.bind(filter));
+    this.expressApp.use(filter.catch);
   }
 
   init(port: number): void {

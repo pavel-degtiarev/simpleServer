@@ -9,6 +9,8 @@ export class ExceptionFilter implements IException {
   constructor(logger: ILogger) {
     this.logger = logger;
     this.logger.log(`Exception filter attached`);
+
+    this.catch = this.catch.bind(this);
   }
 
   catch(err: Error | HTTPError, req: Request, res: Response, next: NextFunction): void {
