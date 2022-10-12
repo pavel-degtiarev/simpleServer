@@ -4,7 +4,7 @@ import { NextHandleFunction } from "connect";
 
 import { ILogger } from "./common/interfaces/logger.interface.js";
 import { RouteController } from "./common/interfaces/routeController.interface.js";
-import { ExceptionFilter } from "./services/errors/exceptionFilter.service.js";
+import { ExceptionFilter } from "./helpers/errors/exceptionFilter.service.js";
 
 export class App {
   expressApp: Express;
