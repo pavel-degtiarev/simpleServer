@@ -31,8 +31,10 @@ export class UsersController extends BaseController {
     res: Response,
     next: NextFunction
   ): Promise<void> {
-    console.log(req.body);
     const result = await this.service.createUser(req.body);
+    if (!result) {
+      return next(new HTTPError(422, "Такой пользователь уже существует"));
+    }
     this.ok(res, result);
   }
 }
