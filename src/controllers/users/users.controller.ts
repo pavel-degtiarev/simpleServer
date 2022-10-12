@@ -12,7 +12,7 @@ export class UsersController extends BaseController {
     this.bindRoutes([
       { method: "get", endpoint: "/", handler: this.root.bind(this) },
       { method: "post", endpoint: "/login", handler: this.login.bind(this) },
-      { method: "post", endpoint: "/register", handler: this.register.bind(this) },
+      { method: "post", endpoint: "/register", handler: this.register.bind(this), middlewares: [] },
     ]);
   }
 
