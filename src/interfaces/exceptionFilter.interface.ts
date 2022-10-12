@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from "express";
+import { ExpressErrorHandler } from "./express.handlers.types.js";
 
 export interface IException {
-  catch: (err: Error, req: Request, res: Response, next: NextFunction) => void;
+  catch: ExpressErrorHandler;
 }
